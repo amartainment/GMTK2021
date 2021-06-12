@@ -7,6 +7,7 @@ public class LaserCreator : MonoBehaviour
     // Start is called before the first frame update
     public bool laserEnabled = false;
     public bool laserAvailable = false;
+    bool lineMade = false;
     public float laserRange = 5f;
     public LayerMask laserLayerMask;
     bool laserTimerRunning = false;
@@ -49,8 +50,10 @@ public class LaserCreator : MonoBehaviour
 
     void CheckForBallsInRange()
     {
+        
         if (laserAvailable)
         {
+            
             GameObject closestBall = FindClosestBall();
             if (closestBall != null)
             {
@@ -68,6 +71,9 @@ public class LaserCreator : MonoBehaviour
             {
                 EndLaser();
             }
+        } else
+        {
+            EndLaser();
         }
     }
 
