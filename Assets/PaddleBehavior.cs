@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation;
 
 public class PaddleBehavior : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class PaddleBehavior : MonoBehaviour
     Rigidbody2D myRb;
     public bool bottomPaddle = false;
     public float speed = 10;
+    float dstTravelled = 0;
+    public PathCreator pathCreator;
+    public EndOfPathInstruction end;
+    
     void Start()
     {
         myRb = GetComponent<Rigidbody2D>();  
@@ -16,9 +21,31 @@ public class PaddleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePaddles();
+        MoveAlongPath();
+    //    MovePaddles();
     }
 
+    void MoveAlongPath()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            dstTravelled += speed * Time.deltaTime;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            dstTravelled -= speed * Time.deltaTime;
+        }
+        else
+        {
+            
+        }
+
+        
+        transform.position = pathCreator.path.GetPointAtDistance(dstTravelled, end);
+        transform.up = pathCreator.path.GetNormalAtDistance(dstTravelled, end);
+        //transform.rotation = pathCreator.path.GetRotationAtDistance(dstTravelled, end);
+
+    }
     void MovePaddles()
     {
         if(bottomPaddle)

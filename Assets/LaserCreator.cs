@@ -9,6 +9,7 @@ public class LaserCreator : MonoBehaviour
     public bool laserAvailable = false;
     public float laserRange = 5f;
     public LayerMask laserLayerMask;
+    bool laserTimerRunning = false;
     
     void Start()
     {
@@ -26,6 +27,14 @@ public class LaserCreator : MonoBehaviour
     public void ToggleLaser(bool val)
     {
         laserAvailable = val;
+        if(val == true)
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+
+        } else
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     
@@ -47,9 +56,13 @@ public class LaserCreator : MonoBehaviour
             {
                 if (Vector2.Distance(closestBall.transform.position, transform.position) < laserRange)
                 {
+                    Debug.Log(Vector2.Distance(closestBall.transform.position, transform.position));
                     //disable other ones laser so it doesnt overlap lasers
                     //closestBall.GetComponent<LaserCreator>().laserAvailable = false;
                     CreateLaser(closestBall);
+                } else
+                {
+                    EndLaser();
                 }
             } else
             {
@@ -119,6 +132,34 @@ public class LaserCreator : MonoBehaviour
        
     }
 
-    
+    public void EnableLaser()
+    {
+        StopCoroutine("laserEnabledTimer");
+            StartCoroutine("laserEnabledTimer");
+        
+    }
+    IEnumerator laserEnabledTimer()
+    {
+        
+        GetComponent<SpriteRenderer>().color = Color.blue;
+        
+        ToggleLaser(true);
+        yield return new WaitForSeconds(5);
+        ToggleLaser(false);
+        
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("paddle"))
+        {
+            EnableLaser();
+        }
+    }
+
+
 }
+    
+
 
