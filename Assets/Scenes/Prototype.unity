@@ -421,7 +421,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &550896630
 BoxCollider2D:
@@ -568,7 +568,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &823830443
 BoxCollider2D:
@@ -1423,7 +1423,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &2112573191
 BoxCollider2D:
@@ -1634,7 +1634,7 @@ PrefabInstance:
     - target: {fileID: 8245733105115768700, guid: 1be8a9d3a8f13af48aa2d070b465665d,
         type: 3}
       propertyPath: maxSpeed
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8245733105115768703, guid: 1be8a9d3a8f13af48aa2d070b465665d,
         type: 3}
@@ -1644,12 +1644,12 @@ PrefabInstance:
     - target: {fileID: 8245733105115768703, guid: 1be8a9d3a8f13af48aa2d070b465665d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.29
+      value: -13.3
       objectReference: {fileID: 0}
     - target: {fileID: 8245733105115768703, guid: 1be8a9d3a8f13af48aa2d070b465665d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.38
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 8245733105115768703, guid: 1be8a9d3a8f13af48aa2d070b465665d,
         type: 3}

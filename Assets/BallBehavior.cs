@@ -6,7 +6,7 @@ public class BallBehavior : MonoBehaviour
 {
     public Rigidbody2D myRb;
     public float speed = 10;
-    public float maxSpeed = 30;
+    public float maxSpeed = 20;
     public float currentSize = 1;
     public bool clone = false;
     public bool readyForFusion = false;
@@ -35,12 +35,13 @@ public class BallBehavior : MonoBehaviour
     void BallPhysics()
     {
         //drag
-        myRb.velocity *= 0.995f;
+        myRb.velocity *= 0.9995f;
     }
 
 
     public void BallFission()
     {
+        maxSpeed += 5;
         Vector2 randomizedOffset = Random.insideUnitCircle + new Vector2(transform.localScale.x,transform.localScale.y);
         transform.localScale -= 0.5f * Vector3.one;
         GameObject newBall = Instantiate(gameObject, transform.position, Quaternion.identity);
@@ -62,6 +63,7 @@ public class BallBehavior : MonoBehaviour
     {
         if(otherBall !=null && readyForFusion)
         {
+            maxSpeed -= 5f;
             otherBall.GetComponent<BallBehavior>().readyForFusion = false;
             transform.localScale += 0.5f * Vector3.one;
             Destroy(otherBall);
