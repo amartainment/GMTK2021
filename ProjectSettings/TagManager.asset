@@ -8,6 +8,7 @@ TagManager:
   - ballManager
   - enemy
   - paddle
+  - wall
   layers:
   - Default
   - TransparentFX
