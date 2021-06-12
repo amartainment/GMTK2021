@@ -19,7 +19,23 @@ public class LaserCreator : MonoBehaviour
     void Update()
     {
         CheckForBallsInRange();
+        InputTesting();
     
+    }
+
+    public void ToggleLaser(bool val)
+    {
+        laserAvailable = val;
+    }
+
+    
+
+    void InputTesting()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            ToggleLaser(true);
+        }
     }
 
     void CheckForBallsInRange()

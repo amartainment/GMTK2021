@@ -23,6 +23,9 @@ public class BoomBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //damage enemies
+        if(collision.CompareTag("enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
