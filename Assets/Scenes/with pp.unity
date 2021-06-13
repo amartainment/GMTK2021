@@ -408,7 +408,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 1
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 1
     showTransformTool: 1
@@ -874,7 +874,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 640c8270693116f449296c41903d4358, type: 3}
-  m_Color: {r: 0.8235295, g: 0.9960785, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0.03529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1100,7 +1100,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 640c8270693116f449296c41903d4358, type: 3}
-  m_Color: {r: 0.8235295, g: 0.9960785, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0.050980397, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2060,7 +2060,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 640c8270693116f449296c41903d4358, type: 3}
-  m_Color: {r: 0.82373774, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0.058823533, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2695,7 +2695,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 640c8270693116f449296c41903d4358, type: 3}
-  m_Color: {r: 0.8196079, g: 0.9960785, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0.058823533, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2954,6 +2954,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245733105115768702, guid: 1be8a9d3a8f13af48aa2d070b465665d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245733105115768702, guid: 1be8a9d3a8f13af48aa2d070b465665d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8245733105115768703, guid: 1be8a9d3a8f13af48aa2d070b465665d,
         type: 3}
