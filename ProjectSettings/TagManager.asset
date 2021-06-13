@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - paddle
   - wall
+  - reset
   layers:
   - Default
   - TransparentFX

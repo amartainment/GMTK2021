@@ -57,7 +57,8 @@ public class BallBehavior : MonoBehaviour
             newBallBehavior.SetVelocity(newBallVelocity);
             newBallBehavior.fissionAllowed = fissionAllowed;
             CreateExplosion(transform.position, 2);
-            
+            Camera.main.GetComponent<CameraShake>().shakeDuration = 0.05f;
+
         }
     }
         
@@ -80,6 +81,7 @@ public class BallBehavior : MonoBehaviour
             readyForFusion = false;
             
             reduceSpeed();
+            Camera.main.GetComponent<CameraShake>().shakeDuration = 0.05f;
             fissionAllowed++;
         }
     }
@@ -125,6 +127,11 @@ public class BallBehavior : MonoBehaviour
             reflectedDiretion = relativeVel - 2 * Vector2.Dot(collisionPoint.normal, relativeVel) * collisionPoint.normal;
             IncreaseSpeed();
             SetVelocity(reflectedDiretion.normalized * speed);
+
+            if(collision.collider.CompareTag("paddle"))
+            {
+                Camera.main.GetComponent<CameraShake>().shakeDuration = 0.05f;
+            }
         }
 
         if(collision.collider.CompareTag("ball"))
