@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     public int currentIndex = 0;
     bool laserCreated = false;
     bool fusionDone = false;
+    bool fusionTimerRunning = false;
     public EnemySpawner enemySpawner;
     public enum State
     {
@@ -51,6 +52,10 @@ public class TutorialManager : MonoBehaviour
             case State.laser:
                 break;
             case State.fusion:
+                if(!fusionTimerRunning)
+                {
+                    StartCoroutine("FusionSkipTimer");
+                }
                 break;
             case State.kill:
                 break;
@@ -116,6 +121,22 @@ public class TutorialManager : MonoBehaviour
         tutorialText.text = instructions[currentIndex];
         yield return new WaitForSeconds(3);
         Destroy(tutorialText.gameObject);
+    }
+
+    IEnumerator FusionSkipTimer()
+    {
+        if (!fusionTimerRunning)
+        {
+            fusionTimerRunning = true;
+            yield return new WaitForSeconds(7);
+            if (!fusionDone)
+            {
+                fusionDone = true;
+                StartCoroutine("FinalInstruction");
+                state = State.kill;
+                enemySpawner.enabled = true;
+            }
+        }
     }
 
     
