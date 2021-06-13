@@ -11,7 +11,7 @@ public class LaserCreator : MonoBehaviour
     public float laserRange = 5f;
     public LayerMask laserLayerMask;
     bool laserTimerRunning = false;
-    
+    public GameObject laserIndicator;
     void Start()
     {
         
@@ -30,11 +30,11 @@ public class LaserCreator : MonoBehaviour
         laserAvailable = val;
         if(val == true)
         {
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            laserIndicator.SetActive(true);
 
         } else
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            laserIndicator.SetActive(false);
         }
     }
 
@@ -148,8 +148,8 @@ public class LaserCreator : MonoBehaviour
     }
     IEnumerator laserEnabledTimer()
     {
-        
-        GetComponent<SpriteRenderer>().color = Color.blue;
+
+        laserIndicator.SetActive(true);
         
         ToggleLaser(true);
         yield return new WaitForSeconds(5);
