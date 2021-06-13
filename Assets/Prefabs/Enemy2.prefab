@@ -150,5 +150,7 @@ MonoBehaviour:
   speed: 10
   smoothness: 5
   health: 12
+  explosion: {fileID: 2770246670045645171, guid: 92650281e88b62843886e435a7b64632,
+    type: 3}
   enemyPrefab: {fileID: 4752884269883920834, guid: 7f3f607399a999147a239d357982c597,
     type: 3}
