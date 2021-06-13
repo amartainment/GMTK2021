@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 3961901}
   - component: {fileID: 3961900}
   - component: {fileID: 3961899}
+  - component: {fileID: 3961903}
   m_Layer: 0
   m_Name: ResetArea (2)
   m_TagString: reset
@@ -281,6 +282,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &3961903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3961898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad138dc092e9e2f48a52b0382163b3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40166534
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +306,7 @@ GameObject:
   - component: {fileID: 40166537}
   - component: {fileID: 40166536}
   - component: {fileID: 40166535}
+  - component: {fileID: 40166539}
   m_Layer: 0
   m_Name: ResetArea (1)
   m_TagString: reset
@@ -411,6 +425,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &40166539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40166534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad138dc092e9e2f48a52b0382163b3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40588505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +1952,7 @@ GameObject:
   - component: {fileID: 1209397936}
   - component: {fileID: 1209397935}
   - component: {fileID: 1209397934}
+  - component: {fileID: 1209397938}
   m_Layer: 0
   m_Name: ResetArea (3)
   m_TagString: reset
@@ -2044,6 +2071,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1209397938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209397933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad138dc092e9e2f48a52b0382163b3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215080027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2382,7 @@ GameObject:
   - component: {fileID: 1611186923}
   - component: {fileID: 1611186922}
   - component: {fileID: 1611186921}
+  - component: {fileID: 1611186925}
   m_Layer: 0
   m_Name: ResetArea
   m_TagString: reset
@@ -2461,6 +2501,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1611186925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611186920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad138dc092e9e2f48a52b0382163b3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1611322014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,7 +3057,7 @@ PrefabInstance:
     - target: {fileID: 8665299591304378139, guid: 2f2bfddb934d0e941a33b26bfe48d5af,
         type: 3}
       propertyPath: speed
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8665299591304378139, guid: 2f2bfddb934d0e941a33b26bfe48d5af,
         type: 3}
@@ -3654,7 +3706,7 @@ PrefabInstance:
     - target: {fileID: 8665299591304378139, guid: 2f2bfddb934d0e941a33b26bfe48d5af,
         type: 3}
       propertyPath: speed
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8665299591304378139, guid: 2f2bfddb934d0e941a33b26bfe48d5af,
         type: 3}
