@@ -3546,6 +3546,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2580464854885138378, guid: c59dc099168aef34184babeb9152c945,
         type: 3}
+      propertyPath: thinkingTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580464854885138378, guid: c59dc099168aef34184babeb9152c945,
+        type: 3}
+      propertyPath: spawnDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580464854885138378, guid: c59dc099168aef34184babeb9152c945,
+        type: 3}
       propertyPath: spawnPoints.Array.size
       value: 1
       objectReference: {fileID: 0}

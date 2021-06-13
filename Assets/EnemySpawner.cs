@@ -15,7 +15,10 @@ public class EnemySpawner : MonoBehaviour
     int currentWave = 0;
     public GameObject enemyPrefab;
     public GameObject winText;
-    
+    public int spawnDuration = 4;
+    public float minSpeed = 10;
+    public float maxSpeed = 15;
+    public float thinkingTime = 3;
 
     private void OnEnable()
     {
@@ -84,9 +87,12 @@ public class EnemySpawner : MonoBehaviour
             {
                 while (enemiesCreated < enemiesPerWave)
                 {
-                    Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
+                    GameObject newEnemy = Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
+                    EnemyBehavior newEnemyBehavior = newEnemy.GetComponent<EnemyBehavior>();
+                    newEnemyBehavior.speed = Random.Range(minSpeed, maxSpeed);
+                    newEnemyBehavior.thinkingTime = thinkingTime;
                     enemiesCreated++;
-                    yield return new WaitForSeconds(4);
+                    yield return new WaitForSeconds(spawnDuration);
 
                 }
 
@@ -95,7 +101,10 @@ public class EnemySpawner : MonoBehaviour
             {
                 while (enemiesCreated < enemiesPerWave)
                 {
-                    Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
+                    GameObject newEnemy = Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
+                    EnemyBehavior newEnemyBehavior = newEnemy.GetComponent<EnemyBehavior>();
+                    newEnemyBehavior.speed = Random.Range(minSpeed, maxSpeed);
+                    newEnemyBehavior.thinkingTime = thinkingTime;
                     enemiesCreated++;
                     HideSpawnPoints();
                 }

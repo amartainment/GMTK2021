@@ -17,6 +17,7 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject explosion;
     public AudioClip boomClip;
     public AudioSource mySource;
+    public float thinkingTime = 2;
     public enum State
     {
         hover,fly,retreat
@@ -104,7 +105,7 @@ public class EnemyBehavior : MonoBehaviour
     IEnumerator StartFlyTimer()
     {
         hoverTimerRunning = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(thinkingTime);
         target = pointManager.ReturnATransform();
         state = State.fly;
         hoverTimerRunning = false;
