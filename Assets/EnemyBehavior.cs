@@ -6,7 +6,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
     DamagePointManager pointManager;
-    Rigidbody2D myRb;
+    protected Rigidbody2D myRb;
     Transform target;
     public float speed = 10;
     bool hoverTimerRunning = false;
@@ -22,7 +22,7 @@ public class EnemyBehavior : MonoBehaviour
 
     State state;
 
-    void Start()
+    virtual public void Start()
     {
         startingPosition = transform.position;
         pointManager = GameObject.Find("DamagePoints").GetComponent<DamagePointManager>();
@@ -31,7 +31,7 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     public void Update()
     {
         LerpVelocity();
         Death();
@@ -54,7 +54,7 @@ public class EnemyBehavior : MonoBehaviour
     }
 
 
-    void Hover()
+     public void Hover()
     {
         if(!hoverTimerRunning)
         {
@@ -62,7 +62,7 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    void FlyToTarget()
+      void FlyToTarget()
     {
         
         Vector3 direction = target.position - transform.position;
@@ -71,12 +71,12 @@ public class EnemyBehavior : MonoBehaviour
 
     }
 
-    public void DamageEnemy(float d)
+     public void DamageEnemy(float d)
     {
         health -= d;
     }
 
-    public void Death()
+    virtual public void Death()
     {
         if(health <=0)
         {
@@ -108,7 +108,7 @@ public class EnemyBehavior : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    virtual public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.CompareTag("wall"))
         {
