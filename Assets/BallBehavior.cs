@@ -53,6 +53,7 @@ public class BallBehavior : MonoBehaviour
             Vector2 newBallVelocity = new Vector2(-myRb.velocity.x, myRb.velocity.y);
             BallBehavior newBallBehavior = newBall.GetComponent<BallBehavior>();
             newBallBehavior.clone = true;
+            newBallBehavior.GetComponent<LaserCreator>().ToggleLaser(false);
             newBallBehavior.prepareForFusion();
             newBallBehavior.SetVelocity(newBallVelocity);
             newBallBehavior.fissionAllowed = fissionAllowed;
@@ -79,7 +80,7 @@ public class BallBehavior : MonoBehaviour
             Destroy(otherBall);
             CreateExplosion(transform.position,4);
             readyForFusion = false;
-            
+            MyEventSystem.fusion(1);
             reduceSpeed();
             Camera.main.GetComponent<CameraShake>().shakeDuration = 0.05f;
             fissionAllowed++;

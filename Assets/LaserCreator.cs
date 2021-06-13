@@ -59,7 +59,7 @@ public class LaserCreator : MonoBehaviour
             {
                 if (Vector2.Distance(closestBall.transform.position, transform.position) < laserRange)
                 {
-                   
+                    
                     //disable other ones laser so it doesnt overlap lasers
                     //closestBall.GetComponent<LaserCreator>().laserAvailable = false;
                     CreateLaser(closestBall);
@@ -79,6 +79,7 @@ public class LaserCreator : MonoBehaviour
 
     void CreateLaser(GameObject closestBall)
     {
+        
         LineRenderer laserLine = GetComponent<LineRenderer>();
         laserLine.positionCount = 2;
         laserLine.SetPosition(0, transform.position);
@@ -129,6 +130,7 @@ public class LaserCreator : MonoBehaviour
             {
                 closestBall = ball;
                 distance = currentDistance;
+                MyEventSystem.laserCreated(1);
             }
         }
 
