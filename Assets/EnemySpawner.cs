@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<Transform> spawnPoints;
+    public Text waveText;
     Transform chosenSpawnPoint;
     public int enemiesPerWave = 10;
     int deadEnemies = 0;
@@ -29,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine("SpawnEnemyTimer");
+        AnimateWaveText();
     }
 
     // Update is called once per frame
@@ -44,7 +47,15 @@ public class EnemySpawner : MonoBehaviour
         {
             deadEnemies = 0;
             StartCoroutine("SpawnEnemyTimer");
+            AnimateWaveText();
         }
+    }
+
+    void AnimateWaveText()
+    {
+        string newText = "W A V E  " + currentWave.ToString();
+        waveText.text = newText;
+        waveText.GetComponent<Animator>().Play("flickertext");
     }
 
     Transform returnSpawnPoint()
