@@ -13,6 +13,7 @@ public class EnemyBehavior : MonoBehaviour
     Vector3 startingPosition;
     Vector2 targetVelocity;
     public float smoothness = 5;
+    public float health = 5;
     public enum State
     {
         hover,fly,retreat
@@ -32,6 +33,7 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
         LerpVelocity();
+        Death();
 
         switch (state)
         {
@@ -68,6 +70,20 @@ public class EnemyBehavior : MonoBehaviour
 
     }
 
+    public void DamageEnemy(float d)
+    {
+        health -= d;
+    }
+
+    public void Death()
+    {
+        if(health <=0)
+        {
+            MyEventSystem.enemyDead(1);
+            Destroy(gameObject);
+        }
+    }
+
     void LerpVelocity()
     {
        myRb.velocity =  Vector2.Lerp(myRb.velocity, targetVelocity, Time.deltaTime * smoothness);
@@ -101,7 +117,9 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnDestroy()
     {
-        MyEventSystem.enemyDead(1);
+        
     }
+
+
 
 }

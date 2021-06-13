@@ -12,6 +12,7 @@ public class BallBehavior : MonoBehaviour
     public bool readyForFusion = false;
     BallManager ballManager;
     public GameObject boom;
+    public int fissionAllowed = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,15 +42,23 @@ public class BallBehavior : MonoBehaviour
 
     public void BallFission()
     {
-        maxSpeed += 5;
-        Vector2 randomizedOffset = Random.insideUnitCircle + new Vector2(transform.localScale.x,transform.localScale.y);
-        transform.localScale -= 0.5f * Vector3.one;
-        GameObject newBall = Instantiate(gameObject, transform.position, Quaternion.identity);
-        Vector2 newBallVelocity = new Vector2(-myRb.velocity.x, myRb.velocity.y);
-        BallBehavior newBallBehavior = newBall.GetComponent<BallBehavior>();
-        newBallBehavior.clone = true;
-        newBallBehavior.SetVelocity(newBallVelocity);
-        CreateExplosion(transform.position,2) ;
+        if (fissionAllowed > 0)
+        {
+            fissionAllowed--;
+            maxSpeed += 5;
+            prepareForFusion();
+            Vector2 randomizedOffset = Random.insideUnitCircle + new Vector2(transform.localScale.x, transform.localScale.y);
+            transform.localScale -= 0.5f * Vector3.one;
+            GameObject newBall = Instantiate(gameObject, transform.position, Quaternion.identity);
+            Vector2 newBallVelocity = new Vector2(-myRb.velocity.x, myRb.velocity.y);
+            BallBehavior newBallBehavior = newBall.GetComponent<BallBehavior>();
+            newBallBehavior.clone = true;
+            newBallBehavior.prepareForFusion();
+            newBallBehavior.SetVelocity(newBallVelocity);
+            newBallBehavior.fissionAllowed = fissionAllowed;
+            CreateExplosion(transform.position, 2);
+            
+        }
     }
         
     public void CreateExplosion(Vector2 position, float scale)
@@ -71,6 +80,7 @@ public class BallBehavior : MonoBehaviour
             readyForFusion = false;
             GetComponent<SpriteRenderer>().color = Color.red;
             reduceSpeed();
+            fissionAllowed++;
         }
     }
 
@@ -132,6 +142,17 @@ public class BallBehavior : MonoBehaviour
             }
         }
 
+    }
+
+    IEnumerator ReadyForFusionTimer()
+    {
+        yield return new WaitForSeconds(3);
+        readyForFusion = true;
+    }
+
+    public void prepareForFusion()
+    {
+        StartCoroutine("ReadyForFusionTimer");
     }
 
    

@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public int waves = 3;
     int currentWave = 0;
     public GameObject enemyPrefab;
+    
 
     private void OnEnable()
     {
@@ -56,16 +57,29 @@ public class EnemySpawner : MonoBehaviour
     {
         if (currentWave < waves)
         {
+            
             currentWave++;
             Debug.Log("wave started");
             yield return new WaitForSeconds(5);
             int enemiesCreated = 0;
-            while (enemiesCreated < enemiesPerWave)
+            if (currentWave != waves)
             {
-                Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
-                enemiesCreated++;
-                yield return new WaitForSeconds(4);
+                while (enemiesCreated < enemiesPerWave)
+                {
+                    Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
+                    enemiesCreated++;
+                    yield return new WaitForSeconds(4);
 
+                }
+
+                
+            } else
+            {
+                while (enemiesCreated < enemiesPerWave)
+                {
+                    Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
+                    enemiesCreated++;
+                }
             }
         } else
         {

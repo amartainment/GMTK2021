@@ -87,8 +87,10 @@ public class LaserCreator : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, lineDirection.normalized, lineDirection.magnitude,laserLayerMask);
         if(hit.collider!=null)
         {
-            Debug.Log(hit.collider.gameObject);
-            Destroy(hit.collider.gameObject);
+            if(hit.collider.CompareTag("enemy"))
+            {
+                hit.collider.GetComponent<EnemyBehavior>().DamageEnemy(6);
+            }
         }
     }
 

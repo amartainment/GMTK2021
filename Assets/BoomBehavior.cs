@@ -25,7 +25,7 @@ public class BoomBehavior : MonoBehaviour
     {
         if(collision.CompareTag("enemy"))
         {
-            Destroy(collision.gameObject);
+            collision.GetComponent<EnemyBehavior>().DamageEnemy(6);
         }
     }
 }
