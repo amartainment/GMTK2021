@@ -79,11 +79,22 @@ public class EnemySpawner : MonoBehaviour
                 {
                     Instantiate(enemyPrefab, returnSpawnPoint().position, Quaternion.identity);
                     enemiesCreated++;
+                    HideSpawnPoints();
                 }
+                
+
             }
         } else
         {
             yield return null;
+        }
+    }
+
+    void HideSpawnPoints()
+    {
+foreach(Transform t in spawnPoints)
+        {
+            t.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
