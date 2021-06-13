@@ -78,7 +78,7 @@ public class BallBehavior : MonoBehaviour
             Destroy(otherBall);
             CreateExplosion(transform.position,4);
             readyForFusion = false;
-            GetComponent<SpriteRenderer>().color = Color.red;
+            
             reduceSpeed();
             fissionAllowed++;
         }
@@ -91,11 +91,7 @@ public class BallBehavior : MonoBehaviour
             BallFission();
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            readyForFusion = true;
-            GetComponent<SpriteRenderer>().color = Color.yellow;
-        }
+        
     }
     public void SetVelocity(Vector2 velocity)
     {
