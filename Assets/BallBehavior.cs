@@ -49,7 +49,7 @@ public class BallBehavior : MonoBehaviour
         BallBehavior newBallBehavior = newBall.GetComponent<BallBehavior>();
         newBallBehavior.clone = true;
         newBallBehavior.SetVelocity(newBallVelocity);
-        CreateExplosion(transform.position,1) ;
+        CreateExplosion(transform.position,2) ;
     }
         
     public void CreateExplosion(Vector2 position, float scale)
@@ -67,7 +67,7 @@ public class BallBehavior : MonoBehaviour
             otherBall.GetComponent<BallBehavior>().readyForFusion = false;
             transform.localScale += 0.5f * Vector3.one;
             Destroy(otherBall);
-            CreateExplosion(transform.position,2);
+            CreateExplosion(transform.position,4);
             readyForFusion = false;
             GetComponent<SpriteRenderer>().color = Color.red;
             reduceSpeed();

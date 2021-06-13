@@ -7,4 +7,5 @@ public static class MyEventSystem
 {
 
     public static System.Action<int> damagedWall;
+    public static System.Action<int> enemyDead;
 }

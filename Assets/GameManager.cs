@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public float health;
     public float maxHealth = 100;
-    float damagePerHit = 5;
+    public float damagePerHit = 5;
     public Slider healthSlider;
 
     // Start is called before the first frame update
@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
     void UpdateHealth()
     {
         healthSlider.value = health / maxHealth;
+
+        if (health <0)
+        {
+            Debug.Log("Gameover");
+        }
     }
     void DoDamage(int i)
     {

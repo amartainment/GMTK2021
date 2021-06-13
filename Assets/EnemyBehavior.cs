@@ -83,7 +83,7 @@ public class EnemyBehavior : MonoBehaviour
     IEnumerator StartFlyTimer()
     {
         hoverTimerRunning = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         target = pointManager.ReturnATransform();
         state = State.fly;
         hoverTimerRunning = false;
@@ -97,6 +97,11 @@ public class EnemyBehavior : MonoBehaviour
             MyEventSystem.damagedWall(1);
             state = State.retreat;
         }
+    }
+
+    private void OnDestroy()
+    {
+        MyEventSystem.enemyDead(1);
     }
 
 }
