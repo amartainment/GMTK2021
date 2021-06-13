@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
-  damagePerHit: 10
+  damagePerHit: 2
   healthSlider: {fileID: 0}
   loseScreen: {fileID: 0}
 --- !u!114 &2580464854885138378
