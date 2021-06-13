@@ -14,6 +14,7 @@ public class EnemyBehavior : MonoBehaviour
     Vector2 targetVelocity;
     public float smoothness = 5;
     public float health = 5;
+    public GameObject explosion;
     public enum State
     {
         hover,fly,retreat
@@ -80,6 +81,7 @@ public class EnemyBehavior : MonoBehaviour
         if(health <=0)
         {
             MyEventSystem.enemyDead(1);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

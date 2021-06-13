@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2043468127736399728}
   - component: {fileID: 2418349269791290188}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: EnemyExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2e23e0e3edc75fd4a848c7baff4e2ff2, type: 3}
-  m_Color: {r: 1, g: 0.9635534, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.78316975, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,7 +123,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2770246670045645171}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
