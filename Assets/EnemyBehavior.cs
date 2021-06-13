@@ -15,6 +15,8 @@ public class EnemyBehavior : MonoBehaviour
     public float smoothness = 5;
     public float health = 5;
     public GameObject explosion;
+    public AudioClip boomClip;
+    public AudioSource mySource;
     public enum State
     {
         hover,fly,retreat
@@ -80,6 +82,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(health <=0)
         {
+            
             MyEventSystem.enemyDead(1);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);

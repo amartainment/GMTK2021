@@ -13,6 +13,9 @@ public class BallBehavior : MonoBehaviour
     BallManager ballManager;
     public GameObject boom;
     public int fissionAllowed = 2;
+    public AudioClip fissionClip;
+    public AudioClip fusionClip;
+    public AudioSource mySource;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +62,7 @@ public class BallBehavior : MonoBehaviour
             newBallBehavior.fissionAllowed = fissionAllowed;
             CreateExplosion(transform.position, 2);
             Camera.main.GetComponent<CameraShake>().shakeDuration = 0.05f;
+            mySource.PlayOneShot(fissionClip);
 
         }
     }
@@ -84,6 +88,7 @@ public class BallBehavior : MonoBehaviour
             reduceSpeed();
             Camera.main.GetComponent<CameraShake>().shakeDuration = 0.05f;
             fissionAllowed++;
+            mySource.PlayOneShot(fusionClip);
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class EnemySpawner : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     public int waves = 3;
     int currentWave = 0;
     public GameObject enemyPrefab;
+    public GameObject winText;
     
 
     private void OnEnable()
@@ -37,7 +38,13 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(winText.gameObject.activeInHierarchy)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
     }
 
     void enemyDeath(int i)
@@ -97,7 +104,7 @@ public class EnemySpawner : MonoBehaviour
             }
         } else
         {
-            yield return null;
+            winText.SetActive(true);
         }
     }
 

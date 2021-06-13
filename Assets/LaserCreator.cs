@@ -12,6 +12,9 @@ public class LaserCreator : MonoBehaviour
     public LayerMask laserLayerMask;
     bool laserTimerRunning = false;
     public GameObject laserIndicator;
+    public AudioSource mySource;
+    public AudioClip paddle;
+    
     void Start()
     {
         
@@ -91,6 +94,7 @@ public class LaserCreator : MonoBehaviour
             if(hit.collider.CompareTag("enemy"))
             {
                 hit.collider.GetComponent<EnemyBehavior>().DamageEnemy(6);
+                
             }
         }
     }
@@ -164,6 +168,7 @@ public class LaserCreator : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("paddle"))
         {
+            mySource.PlayOneShot(paddle);
             EnableLaser();
         }
     }

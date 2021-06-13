@@ -112,6 +112,9 @@ public class TutorialManager : MonoBehaviour
         currentIndex++;
         tutorialText.text = instructions[currentIndex];
         yield return new WaitForSeconds(3);
+        currentIndex++;
+        tutorialText.text = instructions[currentIndex];
+        yield return new WaitForSeconds(3);
         Destroy(tutorialText.gameObject);
     }
 
