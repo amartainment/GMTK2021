@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public float damagePerHit = 5;
     public Slider healthSlider;
     public GameObject loseScreen;
+    
 
     // Start is called before the first frame update
     private void OnEnable()
@@ -47,6 +48,13 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
+
+        if(health <= 20)
+        {
+            if(!GetComponent<AudioSource>().isPlaying)
+            GetComponent<AudioSource>().Play();
+            
         }
     }
     void UpdateHealth()
