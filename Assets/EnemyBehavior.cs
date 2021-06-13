@@ -112,6 +112,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(collision.collider.CompareTag("wall"))
         {
+            Camera.main.GetComponent<CameraShake>().shakeDuration = 0.05f;
             MyEventSystem.damagedWall(1);
             state = State.retreat;
         }

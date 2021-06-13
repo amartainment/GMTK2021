@@ -23,4 +23,20 @@ public class ResetArea : MonoBehaviour
             collision.gameObject.transform.position = Vector3.zero;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ball"))
+        {
+            collision.gameObject.transform.position = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ball"))
+        {
+            collision.gameObject.transform.position = Vector3.zero;
+        }
+    }
 }
